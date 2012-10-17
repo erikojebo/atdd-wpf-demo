@@ -1,0 +1,29 @@
+﻿<Window x:Class="AtddDemo.Settings.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SettingsWindow" Height="189" Width="358">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Ip:" Grid.Row="0" Grid.Column="0" />
+        <TextBox Text="{Binding ServerIp, Mode=TwoWay}" Grid.Row="0" Grid.Column="1" />
+        <TextBlock Text="Port:" Grid.Row="1" Grid.Column="0" />
+        <TextBox Text="{Binding ServerIp, Mode=TwoWay}" Grid.Row="1" Grid.Column="1" />
+        <TextBlock Text="Timeout (seconds):" Grid.Row="2" Grid.Column="0" />
+        <TextBox Text="{Binding ServerIp, Mode=TwoWay}" Grid.Row="2" Grid.Column="1" />
+        
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Button Content="OK" Width="80" IsDefault="True" Margin="5 0" />
+            <Button Content="Cancel" Width="80" IsCancel="True" />
+        </StackPanel>
+    </Grid>
+</Window>
