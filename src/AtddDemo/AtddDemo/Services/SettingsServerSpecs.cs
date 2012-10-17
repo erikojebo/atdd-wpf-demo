@@ -14,7 +14,7 @@ namespace AtddDemo.Services
         }
 
         [Test]
-        public void Empty_file_yields_non_null_settings()
+        public void Empty_file_yields_empty_settings()
         {
             var settings = _service.Parse("");
 
