@@ -1,26 +1,36 @@
-﻿using AtddDemo.Services;
+﻿using AtddDemo.Infrastructure;
+using AtddDemo.Services;
 
 namespace AtddDemo.Settings
 {
     public class SettingsPresenter
     {
-        SettingsWindow _view = new SettingsWindow();
-        SettingsViewModel _viewModel = new SettingsViewModel();
-        SettingsService _settingsService = new SettingsService();
+        private ISettingsView _view;
+        private SettingsViewModel _viewModel;
+        private readonly SettingsService _settingsService;
 
         public SettingsPresenter()
         {
-            _view.ViewModel = _viewModel;
+            _settingsService = ObjectRegistry.Create<SettingsService>();
         }
 
-        public void ShowDialog()
+        public void ShowView()
         {
-            var result = _view.ShowDialog();
+            _view = ObjectRegistry.Create<ISettingsView>();
+            _viewModel = ObjectRegistry.Create<SettingsViewModel>();
+            _viewModel.Presenter = this;
 
-            if(result.HasValue && result.Value)
-            {
-                SaveSettings();
-            }
+            var settings = _settingsService.Load();
+
+            _viewModel.FromSettings(settings);
+
+            _view.ShowView(_viewModel);
+        }
+
+        public void Confirm()
+        {
+            SaveSettings();
+            _view.Close();
         }
 
         private void SaveSettings()

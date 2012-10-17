@@ -58,18 +58,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="MainWindowPresenter.cs" />
-    <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="Main\DummyMainView.cs" />
+    <Compile Include="Main\IMainView.cs" />
+    <Compile Include="Infrastructure\ObjectRegistrySpecs.cs" />
+    <Compile Include="Main\MainPresenter.cs" />
+    <Compile Include="Main\MainViewModel.cs" />
+    <Compile Include="Infrastructure\ObjectRegistry.cs" />
     <Compile Include="Services\SettingsServerSpecs.cs" />
     <Compile Include="Services\StringBuilderExtensions.cs" />
+    <Compile Include="Settings\DummySettingsView.cs" />
+    <Compile Include="Settings\ISettingsView.cs" />
     <Compile Include="Settings\ServerSettings.cs" />
+    <Compile Include="Settings\SettingsAcceptanceTests.cs" />
     <Compile Include="Settings\SettingsPresenter.cs" />
     <Compile Include="Services\SettingsService.cs" />
     <Compile Include="Settings\SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Settings\SettingsViewModel.cs" />
-    <Page Include="MainWindow.xaml">
+    <Page Include="Main\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -77,7 +84,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Main\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>

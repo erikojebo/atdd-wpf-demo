@@ -3,7 +3,6 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 using AtddDemo.Settings;
-using System.Linq;
 
 namespace AtddDemo.Services
 {
@@ -20,7 +19,7 @@ namespace AtddDemo.Services
 
         private static string GetSettingsFilePath()
         {
-            var assemblyDirectory = Assembly.GetExecutingAssembly().Location;
+            var assemblyDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             return Path.Combine(assemblyDirectory, SettingsFileName);
         }
 
@@ -28,10 +27,10 @@ namespace AtddDemo.Services
         {
             var sb = new StringBuilder();
 
-            sb.AppendFormat(@"server:{0}\r\n", serverSettings.ServerIp);
-            sb.AppendFormat(@"port:{0}\r\n", serverSettings.Port);
-            sb.AppendFormat(";Timeout in seconds");
-            sb.AppendFormat(@"timeout:{0}\r\n", serverSettings.TimeoutInSeconds);
+            sb.AppendFormatLine(@"server:{0}", serverSettings.ServerIp);
+            sb.AppendFormatLine(@"port:{0}", serverSettings.Port);
+            sb.AppendLine(";Timeout in seconds");
+            sb.AppendFormatLine(@"timeout:{0}", serverSettings.TimeoutInSeconds);
 
             return sb.ToString();
         }
