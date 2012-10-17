@@ -64,14 +64,12 @@
     <Compile Include="Main\MainPresenter.cs" />
     <Compile Include="Main\MainViewModel.cs" />
     <Compile Include="Infrastructure\ObjectRegistry.cs" />
-    <Compile Include="Services\SettingsServerSpecs.cs" />
+    <Compile Include="Services\SettingsService.cs" />
     <Compile Include="Services\StringBuilderExtensions.cs" />
     <Compile Include="Settings\DummySettingsView.cs" />
     <Compile Include="Settings\ISettingsView.cs" />
     <Compile Include="Settings\ServerSettings.cs" />
-    <Compile Include="Settings\SettingsAcceptanceTests.cs" />
     <Compile Include="Settings\SettingsPresenter.cs" />
-    <Compile Include="Services\SettingsService.cs" />
     <Compile Include="Settings\SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>

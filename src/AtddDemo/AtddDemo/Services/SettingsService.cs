@@ -34,44 +34,5 @@ namespace AtddDemo.Services
 
             return sb.ToString();
         }
-
-        public ServerSettings Load()
-        {
-            var settingsFilePath = GetSettingsFilePath();
-
-            var fileContents = File.ReadAllText(settingsFilePath);
-
-            return Parse(fileContents);
-        }
-
-        public ServerSettings Parse(string fileContents)
-        {
-            var settings = new ServerSettings();
-
-            var lines = fileContents.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-
-            foreach (var line in lines)
-            {
-                ParseLine(line, settings);    
-            }
-
-            return settings;
-        }
-
-        private void ParseLine(string line, ServerSettings settings)
-        {
-            if (line.StartsWith("server"))
-                settings.ServerIp = StripLabel(line);
-            else if (line.StartsWith("port"))
-                settings.Port = int.Parse(StripLabel(line));
-            else if (line.StartsWith("timeout"))
-                settings.TimeoutInSeconds = int.Parse(StripLabel(line));
-        }
-
-        private string StripLabel(string input)
-        {
-            var parts = input.Split(':');
-            return parts[1];
-        }
     }
 }
