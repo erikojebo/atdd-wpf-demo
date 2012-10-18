@@ -64,7 +64,7 @@
     <Compile Include="Main\MainPresenter.cs" />
     <Compile Include="Main\MainViewModel.cs" />
     <Compile Include="Infrastructure\ObjectRegistry.cs" />
-    <Compile Include="Services\SettingsServerSpecs.cs" />
+    <Compile Include="Services\SettingsServiceSpecs.cs" />
     <Compile Include="Services\StringBuilderExtensions.cs" />
     <Compile Include="Settings\DummySettingsView.cs" />
     <Compile Include="Settings\ISettingsView.cs" />

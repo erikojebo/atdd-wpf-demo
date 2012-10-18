@@ -27,10 +27,10 @@ namespace AtddDemo.Services
         {
             var sb = new StringBuilder();
 
-            sb.AppendFormatLine(@"server:{0}", serverSettings.ServerIp);
-            sb.AppendFormatLine(@"port:{0}", serverSettings.Port);
+            sb.AppendFormatLine(@"server={0}", serverSettings.ServerIp);
+            sb.AppendFormatLine(@"port={0}", serverSettings.Port);
             sb.AppendLine(";Timeout in seconds");
-            sb.AppendFormatLine(@"timeout:{0}", serverSettings.TimeoutInSeconds);
+            sb.AppendFormatLine(@"timeout={0}", serverSettings.TimeoutInSeconds);
 
             return sb.ToString();
         }
@@ -70,7 +70,7 @@ namespace AtddDemo.Services
 
         private string StripLabel(string input)
         {
-            var parts = input.Split(':');
+            var parts = input.Split('=');
             return parts[1];
         }
     }
