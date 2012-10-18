@@ -34,5 +34,16 @@ namespace AtddDemo.Services
 
             return sb.ToString();
         }
+
+        public ServerSettings Load()
+        {
+            var fileContents = File.ReadAllText(GetSettingsFilePath());
+            return Parse(fileContents);
+        }
+
+        private ServerSettings Parse(string fileContents)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
